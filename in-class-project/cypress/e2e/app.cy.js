@@ -75,7 +75,6 @@ describe("Image Registration", () => {
       const styles = window.getComputedStyle(elements);
       const border = styles.getPropertyValue("border-right-color");
       assert.strictEqual(border, colors.errors);
-      assert.strictEqual(border, colors.sucess);
     });
   });
 });
