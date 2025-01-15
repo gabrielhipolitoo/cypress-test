@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:web": "npx cypress open",
-    "cypress:headlass": "npx cypress run --browser electron"
+    "cypress:headless": "npx cypress run --browser electron"
   },
   "keywords": [],
   "author": "",
