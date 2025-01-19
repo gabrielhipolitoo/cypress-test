@@ -1,4 +1,5 @@
 import assert from "assert";
+import { styleText } from "util";
 class RegisterForm {
   elements = {
     titleInput: () => cy.get("#title"),
@@ -75,6 +76,50 @@ describe("Image Registration", () => {
       const styles = window.getComputedStyle(elements);
       const border = styles.getPropertyValue("border-right-color");
       assert.strictEqual(border, colors.errors);
+    });
+  });
+});
+
+describe("Submitting an image", () => {
+  const colors = {
+    errors: "rgb(220, 53, 69)",
+    sucess: "rgb(220, 53, 69s)",
+  };
+
+  after(() => {
+    cy.clearAllLocalStorage();
+  });
+
+  it("Given I am on the image registration page", () => {
+    cy.visit("/");
+  });
+
+  it("When I enter 'Alien BR' in the title field", () => {
+    // registerForm.typeTitle("Alien BR");
+  });
+
+  it("Then I should see a check icon in the title field", () => {
+    // registerForm.elements.titleInput().should(([elements]) => {
+    //   const style = window.getComputedStyle(elements);
+    //   const border = style.getPropertyValue("border-right-color");
+    //   assert.strictEqual(border, colors.errors);
+    // });
+  });
+
+  it("The i enter in the url field", () => {
+    // registerForm.typeUrl(
+    //   "https://cdn.mos.cms.futurecdn.net/eM9EvWyDxXcnQTTyH8c8p5-1200-80.jpg"
+    // );
+  });
+
+  it("Then I can hit enter to submit the form", () => {
+    // registerForm.elements.submitBtn().click();
+  });
+
+  it("Veja se o placeholder do title tem 'Image Title'", () => {
+    registerForm.elements.titleInput().should(([elements]) => {
+      const placeholder = elements.placeholder === "Image Title";
+      assert.strictEqual(placeholder, true);
     });
   });
 });
